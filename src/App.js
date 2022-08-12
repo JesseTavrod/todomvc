@@ -6,6 +6,8 @@ import Header from './componentes/Header';
 
 function App() {
   const [statusList, setStatusList] = React.useState('all');
+  const [countList, setCountList ] = React.useState(0);
+  const [btnLimpa, setBtnLimpa] = React.useState(false);
 
   const [list, setList] = React.useState(() => {
       const local = localStorage.getItem('ITEMS');
@@ -15,6 +17,12 @@ function App() {
   
   React.useEffect(() => {
     window.localStorage.setItem('ITEMS', JSON.stringify(list));
+    if(list !== null) {
+      setCountList(list.length);
+    }
+
+    let verifyClean = list.filter((item) => item.completed === true);
+    if(verifyClean.length > 0){ setBtnLimpa(true); } else{ setBtnLimpa(false); };
   }, [list]);
     
   return (
@@ -26,17 +34,22 @@ function App() {
         <>
           <List 
             list={list} 
-            setList={setList} 
             statusList={statusList} 
+            btnLimpa={btnLimpa}
+            setList={setList} 
             setStatusList={setStatusList}
+            setBtnLimpa={setBtnLimpa}
           />
         </>
       )}
 
       <Footer 
+        setList={setList}
+        countList={countList}
         statusList={statusList} 
         setStatusList={setStatusList} 
-      
+        btnLimpa={btnLimpa}
+        setBtnLimpa={setBtnLimpa}
         />
 
     </section>

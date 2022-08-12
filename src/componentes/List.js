@@ -1,7 +1,7 @@
 import React from "react";
 import CheckIco from '../check.ico';
 
-const List = ({list, setList, statusList}) => {
+const List = ({list, setList, statusList, btnLimpa, setBtnLimpa}) => {
   const [showList, setShowList] = React.useState([]);
 
   function changeTaskStatus(index){
@@ -10,6 +10,10 @@ const List = ({list, setList, statusList}) => {
     temp_element.completed = !temp_element.completed;
     temp_state[index] = temp_element;
     setList(temp_state);
+
+    let verifyClean = temp_state.filter((item) => item.completed === true);
+    console.log(verifyClean);
+    if(verifyClean.length > 0){ setBtnLimpa(true); } else{ setBtnLimpa(false); };
   }
   
   function removeTaskList(id){
@@ -37,7 +41,6 @@ const List = ({list, setList, statusList}) => {
     if(statusList === 'completed') {
       arrayList = list.filter((list) => list.completed !== false);
     }
-
     setShowList(arrayList);
   }, [statusList, list]);
 

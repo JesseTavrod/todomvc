@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+}
+h1{
+  font-size: 3rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button{
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0.2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button-ativo{
+  box-shadow: 1px 0px 10px 1px #d3d3d373;
+}
+.list-task{
+  min-height: 50vh;
+  overflow: auto;
+  max-height: 20rem; 
+  box-shadow: 0 0px 8px 0px rgb(0 0 0 / 20%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  background: #e1e1e1;
+  align: center;
+  justify-content: center;
+}
+.flex-2 div{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.button-status, .button-remove{
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 5px 10px;
+  background: transparent;
+  margin: 0px 0.5rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+
+.button-status .icon, .button-remove .icon{
+  opacity: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.button-status{
+  box-shadow: 1px 0px 10px 1px #d3d3d373;
+}
+
+.button-status:hover .icon, .button-status:active .icon, .button-remove:hover .icon, .button-remove:active .icon{
+  opacity: 1;
+}
+
+.modal-form{
+  max-width: 50rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.d-flex{
+  display: flex;
+}
+.block-input:hover button.button-remove .icon{
+  opacity: 1;
+}
+
+.block-input{
+  background: rgba(0, 0, 0, 0.003);
+  box-shadow: 0 0px 8px 0px rgb(0 0 0 / 20%);
+  position: relative;
+  margin: 0;
+  width: 100%;
+  border: 0;
+  color: inherit;
+  padding: 0px 0px 0px 0px ;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea:focus, input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+} 
+
+input{
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  padding: 0.5rem 1rem 0.5rem 4rem;
+  border: none;
+  width: 100%;
+  background: transparent;
 }

@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import List from './componentes/List';
+import Footer from './componentes/Footer';
+import Header from './componentes/Header';
 
 function App() {
+  const [statusList, setStatusList] = React.useState('all');
+
+  const [list, setList] = React.useState(() => {
+      const local = localStorage.getItem('ITEMS');
+      return local ? JSON.parse(local) : [];
+    }
+  );
+  
+  React.useEffect(() => {
+    window.localStorage.setItem('ITEMS', JSON.stringify(list));
+  }, [list]);
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className='modal-form'>
+
+      <Header list={list} setList={setList}  />
+      
+      { list &&  (
+        <>
+          <List 
+            list={list} 
+            setList={setList} 
+            statusList={statusList} 
+            setStatusList={setStatusList}
+          />
+        </>
+      )}
+
+      <Footer 
+        statusList={statusList} 
+        setStatusList={setStatusList} 
+      
+        />
+
+    </section>
   );
 }
 

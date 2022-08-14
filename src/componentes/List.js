@@ -12,7 +12,6 @@ const List = ({list, setList, statusList, btnLimpa, setBtnLimpa}) => {
     setList(temp_state);
 
     let verifyClean = temp_state.filter((item) => item.completed === true);
-    console.log(verifyClean);
     if(verifyClean.length > 0){ setBtnLimpa(true); } else{ setBtnLimpa(false); };
   }
   

@@ -17,9 +17,9 @@ button{
 
 .button-ativo{
   box-shadow: 1px 0px 10px 1px #d3d3d373;
+  background: #0dc30d;
 }
 .list-task{
-  min-height: 50vh;
   overflow: auto;
   max-height: 20rem; 
   box-shadow: 0 0px 8px 0px rgb(0 0 0 / 20%);
@@ -37,13 +37,18 @@ button{
   display: flex;
   align-items: center;
   justify-content: start;
+  flex-wrap: wrap;
+}
+
+.flex-2 div button{
+  flex: 1;
 }
 .button-status, .button-remove{
   font-size: 1.5rem;
   color: red;
   font-weight: bold;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -51,7 +56,7 @@ button{
   border: none;
   padding: 5px 10px;
   background: transparent;
-  margin: 0px 0.5rem;
+  margin: 0.5rem 0.5rem;
   cursor: pointer;
 }
 
@@ -62,7 +67,7 @@ button{
 
 
 .button-status{
-  box-shadow: 1px 0px 10px 1px #d3d3d373;
+  box-shadow: 1px 0px 10px 1px #d3d3d3e0;
 }
 
 .button-status:hover .icon, .button-status:active .icon, .button-remove:hover .icon, .button-remove:active .icon{

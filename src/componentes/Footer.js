@@ -8,9 +8,9 @@ const Footer = ( { statusList, setStatusList, countList, setList, btnLimpa, setB
         {countList} Items pendentes
       </div>
       <div>
-        <ButtonStatus statusList={statusList} setStatusList={setStatusList} type="all" value="All" />
-        <ButtonStatus statusList={statusList} setStatusList={setStatusList} type="active" value="Active" />
-        <ButtonStatus statusList={statusList} setStatusList={setStatusList} type="completed" value="Completed" />
+        <ButtonStatus statusList={statusList} setStatusList={setStatusList} type="all" value="Todas" />
+        <ButtonStatus statusList={statusList} setStatusList={setStatusList} type="active" value="Ativas" />
+        <ButtonStatus statusList={statusList} setStatusList={setStatusList} type="completed" value="Completas" />
         <ButtonStatus 
           setList={setList}  
           btnLimpa={btnLimpa}

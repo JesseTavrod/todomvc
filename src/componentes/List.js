@@ -4,13 +4,13 @@ import CheckIco from '../check.ico';
 const List = ({list, setList, statusList, btnLimpa, setBtnLimpa}) => {
   const [showList, setShowList] = React.useState([]);
 
-  function changeTaskStatus(index){
+  function changeTaskStatus(id){
     let temp_state = [...list];
+    let index = list.findIndex(e => e.id === id);
     let temp_element = { ...list[index] };
     temp_element.completed = !temp_element.completed;
     temp_state[index] = temp_element;
     setList(temp_state);
-
     let verifyClean = temp_state.filter((item) => item.completed === true);
     if(verifyClean.length > 0){ setBtnLimpa(true); } else{ setBtnLimpa(false); };
   }
@@ -49,7 +49,7 @@ const List = ({list, setList, statusList, btnLimpa, setBtnLimpa}) => {
         <div className='block-input d-flex' key={id} >
           <button 
             className="button-status"  
-            onClick={() => changeTaskStatus(index)} > 
+            onClick={() => changeTaskStatus(id)} > 
             <img 
             style={{ opacity: completed === true && '1'}}
             className="icon" src={CheckIco} alt="check" width={25} height={25} /> 
@@ -60,7 +60,6 @@ const List = ({list, setList, statusList, btnLimpa, setBtnLimpa}) => {
             style={ { color: completed === true && 'green'}} 
             onChange={(event) => updateValue(event, index)}
             />
-          
           <button 
               className="button-remove" 
               onClick={() => removeTaskList(id)} 

@@ -19,7 +19,7 @@ const Header = ( { setList }) => {
 
   return (
     <>
-      <h1>Todomv</h1>
+      <h1>Controle de tarefas</h1>
       <div className='block-input d-flex'>
         <input 
           placeholder='O que precisa ser feito' 
